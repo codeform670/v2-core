@@ -19,7 +19,8 @@
     "build"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=18.0.0"
+    // IMPROVEMENT: Updated Node.js engine requirement to a modern, supported LTS range (e.g., >=18.0.0).
   },
   "devDependencies": {
     "@types/chai": "^4.2.6",
@@ -31,13 +32,19 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "solc": "0.5.16",
+    // NOTE: solc version 0.5.16 is kept for contract stability, but should be checked for necessary upgrades in a full audit.
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   },
   "scripts": {
-    "lint": "yarn prettier ./test/*.ts --check",
-    "lint:fix": "yarn prettier ./test/*.ts --write",
+    // CLEANUP: Using 'prettier' directly for local execution consistency.
+    "lint": "prettier ./test/*.ts --check",
+    "lint:fix": "prettier ./test/*.ts --write",
+    
+    // CLEANUP: Using 'rimraf' directly for local execution consistency.
     "clean": "rimraf ./build/",
+    
+    // CONSISTENCY: Using standard script references.
     "precompile": "yarn clean",
     "compile": "waffle .waffle.json",
     "pretest": "yarn compile",
